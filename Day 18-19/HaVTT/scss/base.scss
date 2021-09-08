@@ -1,11 +1,17 @@
 @import './variables';
+
+@font-face {
+    font-family: googleSans;
+    src: url('../fonts/GoogleSans-Medium.ttf');
+}
+
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 body {
-    font-family: 'google sans';
+    font-family: 'googleSans';
     background-image: url('../img/bg.png');
     background-size: cover;
 }
