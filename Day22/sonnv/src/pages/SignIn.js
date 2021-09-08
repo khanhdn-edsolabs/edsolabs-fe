@@ -11,7 +11,7 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    // console.log(email, password);
   };
   return (
     <main className="container container__signin">
