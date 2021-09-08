@@ -1,11 +1,11 @@
 import React from 'react'
-import Anh1 from '../Images/Mask_Group2.png'
+import LoginImg from '../Images/Mask_Group2.png'
 import { Link } from 'react-router-dom'
 const Login = () => {
     return (
         <div className="layout layout--signup">
             <div className="layout__container">
-                <img src={Anh1} alt="" className="layout__image" />
+                <img src={LoginImg} alt="" className="layout__image" />
                 <h3 className="layout__title">Hi there!</h3>
                 <h2 className="layout__request">Let's Get Started</h2>
                 <form className="form" method="POST">
