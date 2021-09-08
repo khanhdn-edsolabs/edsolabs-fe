@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Anh2 from '../Images/Mask_Group.png'
+import RegisterImg from '../Images/Mask_Group.png'
 const Register = () => {
     return (
         <div className="layout">
             <div className="layout__container">
-                <img src={Anh2} alt="" className="layout__image" />
+                <img src={RegisterImg} alt="" className="layout__image" />
                 <h3 className="layout__title">Welcome Back!</h3>
                 <h2 className="layout__request">Please, Log In.</h2>
                 <form className="form" method="POST">
