@@ -7,9 +7,9 @@ function App() {
         <div className="l-status">
             <div className="left_status_bar style-content-status"><span>9:41</span></div>
             <div className="right_status_bar style-content-status">
-                <i className="fas fa-signal"></i>
-                <i className="fas fa-wifi"></i>
-                <i className="fas fa-battery-full"></i>
+                <i className="fas fa-signal" />
+                <i className="fas fa-wifi" />
+                <i className="fas fa-battery-full" />
             </div>
         </div>
         <div className="l-main">
@@ -30,7 +30,7 @@ function App() {
                     <input type="password" defaultValue="ádasdasdasdasdsdđáádasd"/>
                 </div>
                 <button className="continue style_input sumbit is-hover" type="submit">
-                    <span>Continue <i className="fas fa-chevron-right"></i></span>
+                    <span>Continue <i className="fas fa-chevron-right"/></span>
                 </button>
             </form>
             <div className="or">
