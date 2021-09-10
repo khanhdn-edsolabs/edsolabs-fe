@@ -25,7 +25,7 @@ export default function ShowInfo(props) {
   const [isLoading, setLoading] = useState(false);
   const APIkey = {
     key: "d20f4b0450d84a0dacf81919210909",
-    base: "http://api.weatherapi.com/v1",
+    base: "https://api.weatherapi.com/v1",
     forecase: "/forecast.json",
     locate: title,
     days: 3,
