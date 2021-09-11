@@ -4,6 +4,7 @@ import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import SearchIcon from "@material-ui/icons/Search";
+import CircularProgress from "@material-ui/core/CircularProgress";
 import moment from "moment";
 import axios from "axios";
 
@@ -71,8 +72,9 @@ export default function ShowInfo(props) {
       <div className="loading">
         {isLoading ? (
           <div>
-            <img src={Spin} className="loading-img" alt="loading"></img>Getting
-            information, please wait...{" "}
+            {/* <img src={Spin} className="loading-img" alt="loading"></img> */}
+            <CircularProgress />
+            Getting information, please wait...{" "}
           </div>
         ) : (
           ""
