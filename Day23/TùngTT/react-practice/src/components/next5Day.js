@@ -34,7 +34,7 @@ export const NextDay = (getEle) => {
     return (
         <div className={classes.root}>
             <Typography variant="h4" className={classes.text}>
-                Next 3 day forecast
+                Next 2 day forecast
             </Typography>
             <Grid item xs={12}>
                 <Grid container justifyContent="center" spacing={10}>

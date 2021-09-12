@@ -54,7 +54,7 @@ export const Search = ({submitSearch}) => {
             </Grid>
             <Grid key={2} item>
               <Typography variant="h2" gutterBottom className={classes.text}>
-                <span>5-day Forecast</span>
+                <span>2-day Forecast</span>
               </Typography>
             </Grid>
           </Grid>
