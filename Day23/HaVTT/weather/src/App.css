@@ -1,0 +1,10 @@
+
+.App {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: bold;
+  background-image: url("./assets/img/imager_7992.jpg");
+}
+#current{
+  background: #fff;
+}
