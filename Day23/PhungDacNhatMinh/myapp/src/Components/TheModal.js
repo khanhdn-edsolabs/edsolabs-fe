@@ -23,9 +23,6 @@ const useStyles = makeStyles((theme) => ({
 function TheModal(props) {
   const { showModalProps, setShowModalProps } = props;
   const classes = useStyles();
-  const handleOpen = () => {
-    setShowModalProps(true);
-  };
 
   const handleClose = () => {
     setShowModalProps(false);
