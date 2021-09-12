@@ -32,6 +32,7 @@ function App() {
   const [next, setNext] = useState([])
   const [forecast, setForecast] = useState(null);
   const [err, setErr] = useState(null); 
+  const [loading, setLoading] = useState(true)
   React.useEffect(
     () => () => {
       clearTimeout(timerRef.current);
@@ -40,7 +41,7 @@ function App() {
   );
   // Hàm lấy dữ liệu từ API
   const submitRequest = location => {
-    try {
+    
       clearTimeout(timerRef.current);
           setQuery('progress');
           timerRef.current = window.setTimeout(() => {
@@ -52,11 +53,14 @@ function App() {
         .then(result => {
           setWeather(result)
           setNext(result.forecast.forecastday)
-          setForecast(true)
+          setLoading(true)
+          setErr(null)
+        }).catch(result => {
+          setWeather(result)
+          setNext([])
+          setLoading(null)
+          setErr(true)    
         });
-    } catch {
-      setErr(true);
-    }
   }
   // Biến cho phần modal footer
   const about = {
@@ -88,8 +92,7 @@ function App() {
         <Search submitSearch={submitRequest}/>
         {query === 'success' ? (
           <Container>
-            {err === true && <LoadError/>}
-            <TodayWeather 
+            {loading && <TodayWeather 
             name={weather.location.name} 
             country={weather.location.country}
             temp_c={weather.current.temp_c} 
@@ -99,12 +102,13 @@ function App() {
             wind2={weather.current.wind_kph}
             precip={weather.current.precip_mm}
             presure={weather.current.pressure_mb}
-            /> 
-            <NextDay
+            />}
+            {loading && <NextDay
             arrDay={getDay}
             arrDate={getDate}
             arrIcon={getIcon}
-            arrTemp={get_c}/>
+            arrTemp={get_c}/>} 
+            {err && <LoadError/>}
           </Container>
         ) : (
           <Grid container justifyContent="center">  
