@@ -5,8 +5,8 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <div className="App">
-      <ShowCurrent></ShowCurrent>
-      <Footer></Footer>
+      <ShowCurrent />
+      <Footer />
     </div>
   );
 }
