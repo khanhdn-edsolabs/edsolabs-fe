@@ -32,34 +32,8 @@ const useStyles = makeStyles({
 });
 
 const getWeekday = (day) => {
-  let day_name = '';
-  switch (day) {
-    case 7:
-      day_name = 'Sun';
-      break;
-    case 1:
-      day_name = 'Mon';
-      break;
-    case 2:
-      day_name = 'Tue';
-      break;
-    case 3:
-      day_name = 'Wed';
-      break;
-    case 4:
-      day_name = 'Thu';
-      break;
-    case 5:
-      day_name = 'Fri';
-      break;
-    case 6:
-      day_name = 'Sat';
-      break;
-    default:
-      day_name = 'defautl';
-  }
-
-  return day_name;
+  const arrWeekDays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  return arrWeekDays[day - 1];
 };
 
 function NextFiveDay(props) {
