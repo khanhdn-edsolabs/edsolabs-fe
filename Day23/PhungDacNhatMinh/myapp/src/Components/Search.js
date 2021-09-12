@@ -22,7 +22,6 @@ const Search = (props) => {
       );
       const responseJSON = await response.json();
       setWeather(responseJSON);
-      console.log(responseJSON);
       setLoading(true);
     } catch (error) {
       console.log("failed");
@@ -36,7 +35,6 @@ const Search = (props) => {
       setTimeout(() => {
         fetchApi(query);
       }, 2000);
-      console.log(query);
       setQuery("");
     }
     return;
@@ -45,7 +43,6 @@ const Search = (props) => {
     e.preventDefault();
   };
 
-  // console.log("minh");
   return (
     <div className="">
       <form className="search" onSubmit={(e) => handleSubmit(e)}>
@@ -89,9 +86,7 @@ const Search = (props) => {
       ) : (
         ""
       )}
-      {loading ? (
-        ""
-      ) : (
+      {!loading && (
         <Box
           display="flex"
           justifyContent="space-around"
