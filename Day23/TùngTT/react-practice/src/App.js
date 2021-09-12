@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {CssBaseline, Container} from '@material-ui/core/';
 import { Search } from './components/search';
 import { Footer, LoadError} from './components/footer';
@@ -33,7 +33,7 @@ function App() {
   const [forecast, setForecast] = useState(null);
   const [err, setErr] = useState(null); 
   const [loading, setLoading] = useState(true)
-  React.useEffect(
+  useEffect(
     () => () => {
       clearTimeout(timerRef.current);
     },
