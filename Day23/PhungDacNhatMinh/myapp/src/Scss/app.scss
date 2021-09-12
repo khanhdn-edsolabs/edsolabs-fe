@@ -4,6 +4,7 @@ body {
     justify-content: center;
     min-height: 100vh;
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 .search {
@@ -24,4 +25,20 @@ body {
 
 li {
     list-style-type: none;
+    padding-bottom: 20px;
+}
+
+.nextDay {
+    width: 100%;
+    text-align: center;
+}
+
+.btn {
+    float: right;
+}
+
+.img {
+    max-width: 100%;
+    width: 100px;
+    border-radius: 50%;
 }

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import NextTwoDay from "./NextTwoDay";
+import Box from "@material-ui/core/Box";
+import CircularProgress from "@material-ui/core/CircularProgress";
 // import PropTypes from "prop-types";
 
 const api = {
@@ -10,6 +12,7 @@ const api = {
 const Search = (props) => {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
+  const [loading, setLoading] = useState(true);
 
   async function fetchApi() {
     try {
@@ -20,15 +23,19 @@ const Search = (props) => {
       const responseJSON = await response.json();
       setWeather(responseJSON);
       console.log(responseJSON);
+      setLoading(true);
     } catch (error) {
       console.log("failed");
       alert("Thành Phố này không tồn tại");
     }
   }
-
   const handleSearch = (e) => {
     if (e.key === "Enter") {
-      fetchApi(query);
+      setWeather({});
+      setLoading(false);
+      setTimeout(() => {
+        fetchApi(query);
+      }, 2000);
       console.log(query);
       setQuery("");
     }
@@ -40,8 +47,8 @@ const Search = (props) => {
 
   // console.log("minh");
   return (
-    <div className="container">
-      <form className="search col-12" onSubmit={(e) => handleSubmit(e)}>
+    <div className="">
+      <form className="search" onSubmit={(e) => handleSubmit(e)}>
         <input
           className="search__input"
           type="text"
@@ -52,14 +59,19 @@ const Search = (props) => {
         />
       </form>
       {typeof weather.location !== "undefined" ? (
-        <ul>
+        <Box border={1} borderRadius={10} padding={1} margin={2}>
           <header>
             <li>
               Today's Weather {weather.location.name},{" "}
               {weather.location.country}
             </li>
           </header>
-          <section className="container d-flex justify-content-between  ">
+          <Box
+            className=""
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-between"
+          >
             <div>
               <li>{weather.forecast.forecastday[0].day.condition.text}</li>
               <li>
@@ -72,10 +84,23 @@ const Search = (props) => {
               <li>Precip: {weather.current.precip_mm.toFixed(2)} mm</li>
               <li>Presure: {weather.current.pressure_mb.toFixed(1)} mb</li>
             </div>
-          </section>
-        </ul>
+          </Box>
+        </Box>
       ) : (
         ""
+      )}
+      {loading ? (
+        ""
+      ) : (
+        <Box
+          display="flex"
+          justifyContent="space-around"
+          alignItems="center"
+          margin={1}
+        >
+          <CircularProgress size={30} />
+          <p> "Getting information, please wait..."</p>
+        </Box>
       )}
       <NextTwoDay weatherObj={weather} />
     </div>
