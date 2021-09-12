@@ -2,13 +2,12 @@ import './App.css';
 import React, {useState} from 'react';
 import {CssBaseline, Container} from '@material-ui/core/';
 import { Search } from './components/search';
-import { Footer } from './components/footer';
+import { Footer, LoadError} from './components/footer';
 import { TodayWeather } from './components/todayWeather';
 import { makeStyles } from '@material-ui/core';
 import { NextDay } from './components/next5Day';
 import Fade from '@material-ui/core/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import { Typography } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
@@ -32,7 +31,7 @@ function App() {
   const timerRef = React.useRef();
   const [next, setNext] = useState([])
   const [forecast, setForecast] = useState(null);
-  
+  const [err, setErr] = useState(null); 
   React.useEffect(
     () => () => {
       clearTimeout(timerRef.current);
@@ -41,20 +40,24 @@ function App() {
   );
   // Hàm lấy dữ liệu từ API
   const submitRequest = location => {
-    fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api.key}&q=${location}&days=3&aqi=no&alerts=no
-    `)
-      .then(res => res.json())
-      .then(result => {
-        setWeather(result)
-        setNext(result.forecast.forecastday)
-        setForecast(true)
-        clearTimeout(timerRef.current);
-        setQuery('progress');
-        timerRef.current = window.setTimeout(() => {
-          setQuery('success');
-        }, 3000);
-      });
+    try {
+      clearTimeout(timerRef.current);
+          setQuery('progress');
+          timerRef.current = window.setTimeout(() => {
+            setQuery('success');
+          }, 3000);
+      fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api.key}&q=${location}&days=3&aqi=no&alerts=no
+      `)
+        .then(res => res.json())
+        .then(result => {
+          setWeather(result)
+          setNext(result.forecast.forecastday)
+          setForecast(true)
+        });
+    } catch {
+      setErr(true);
     }
+  }
   // Biến cho phần modal footer
   const about = {
     name: 'Trương Thanh Tùng',
@@ -85,6 +88,7 @@ function App() {
         <Search submitSearch={submitRequest}/>
         {query === 'success' ? (
           <Container>
+            {err === true && <LoadError/>}
             <TodayWeather 
             name={weather.location.name} 
             country={weather.location.country}

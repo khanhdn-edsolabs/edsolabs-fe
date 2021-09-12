@@ -105,3 +105,32 @@ export const Footer = (getEle) => {
         </div>
     );
 }
+
+export const LoadError = () => {
+    const [open, setOpen] = React.useState(true);
+    const handleClose = () => {
+        setOpen(false);
+    };
+    return (
+        <Dialog 
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="alert-dialog-title"
+                aria-describedby="alert-dialog-description"
+            >
+            <DialogTitle id="alert-dialog-title">{"Lỗi!"}</DialogTitle>
+            <DialogContent>
+                <DialogContentText id="alert-dialog-description">
+                <Typography>
+                    <h3>Không tìm thấy dữ liệu, thử lại!</h3>
+                </Typography>
+                </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+                <Button onClick={handleClose} variant="contained" color="secondary">
+                    Close
+                </Button>
+            </DialogActions>
+        </Dialog>
+    )
+}
