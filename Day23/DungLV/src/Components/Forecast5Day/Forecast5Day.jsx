@@ -42,11 +42,8 @@ const useStyles = makeStyles({
 export default function MediaCard(props) {
   const classes = useStyles();
   const render = props.listWeather.map((item, index) => {
-    function getDayOfWeek(date) {
-      const dayOfWeek = new Date(date).getDay();
-      return isNaN(dayOfWeek)
-        ? null
-        : [
+     function getDayOfWeek(date) {
+       const week = [
             "Sunday",
             "Monday",
             "Tuesday",
@@ -54,7 +51,9 @@ export default function MediaCard(props) {
             "Thursday",
             "Friday",
             "Saturday",
-          ][dayOfWeek];
+          ]
+      const dayOfWeek = new Date(date).getDay();
+      return isNaN(dayOfWeek) ? null : week[dayOfWeek];
     }
     return (
       <Card className={classes.root} key={index}>
