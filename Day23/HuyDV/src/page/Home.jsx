@@ -52,9 +52,8 @@ const Home = (props) => {
             />
             <h2 className={classes.title}>3 ngày dự báo thời tiết </h2>
         </div>
-
-
     })
+    
     const listCard = props.data3day.map((item, index) => (
         <CardWeather
             key={index}
@@ -83,17 +82,11 @@ const Home = (props) => {
                 {
                     pageWeather
                 }
-
                 <div className={classes.flex}>
-
                     {
-
                         listCard
                     }
                 </div>
-
-
-
             </Grid>
         </>
     )

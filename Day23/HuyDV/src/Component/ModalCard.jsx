@@ -47,12 +47,10 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: 'space-between',
         alignItems: 'center'
     },
-
 }));
 
 const ModalCard = (props) => {
     const classes = useStyles();
-    // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
 
 
@@ -88,6 +86,5 @@ const ModalCard = (props) => {
         </div>
     );
 }
-
 
 export default ModalCard

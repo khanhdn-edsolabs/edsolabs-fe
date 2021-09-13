@@ -2,8 +2,6 @@ import Home from './page/Home';
 import Header from './Component/Header';
 import Footer from './Component/Footer';
 
-
-
 import './app.css';
 import React, {
   useState,
@@ -22,7 +20,6 @@ function App() {
 
   const handleOpen = (value) => {
     setOpen(value);
-    console.log(open);
   };
 
   const handleClose = () => {
@@ -31,7 +28,6 @@ function App() {
 
   const getDateSeach = async (value) => {
     const urlSeach = `${process.env.REACT_APP_URL}/search.json?key=e9faed869c8c49d3b7845236210909&q=${value}`;
-
     const res = await fetch(urlSeach);
     const data = res.json();
     data.then((res) => {
@@ -44,7 +40,6 @@ function App() {
     }).catch((err) => {
       setActiveDataSeach(false)
     });
-
   }
 
   const getData3Day = async (value) => {
@@ -57,10 +52,6 @@ function App() {
     });
     setActiveDataSeach(false)
   }
-
-  // 
-
-  // const [value, setValue] = useState('');
 
   const handleValueChange = (value) => {
     setValueInput(value);

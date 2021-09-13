@@ -8,7 +8,6 @@ import ListDataSearch from './ListDataSearch';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-
         position: 'relative',
         padding: '2px 4px',
         display: 'flex',
@@ -31,8 +30,6 @@ const useStyles = makeStyles((theme) => ({
         margin: 4,
     },
 }));
-
-
 
 export default function CustomizedInputBase(props) {
 
@@ -68,9 +65,7 @@ export default function CustomizedInputBase(props) {
                         handleClickList={handleClickList}
                     /> : ''
                 }
-
             </Paper>
-
         </>
     );
 }

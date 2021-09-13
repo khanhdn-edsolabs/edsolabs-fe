@@ -76,7 +76,6 @@ const PaperWeather = (props) => {
     );
 }
 
-
 PaperWeather.propTypes = {
     main: PropTypes.bool,
     city: PropTypes.string.isRequired,

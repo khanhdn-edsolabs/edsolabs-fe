@@ -2,8 +2,6 @@ import React from 'react'
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import styled from 'styled-components';
 
-
-
 const LinkFooter = styled.a`
     padding:0 5px;
     font-weight: bold;
@@ -12,7 +10,6 @@ const LinkFooter = styled.a`
         text-decoration: underline;
     }
 `;
-
 
 const Footer = (props) => {
     const test = () => {

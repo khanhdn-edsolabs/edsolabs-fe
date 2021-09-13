@@ -17,19 +17,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 const CardWeather = props => {
 
+    const arrWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",]
+
     function getDayOfWeek(date) {
         const dayOfWeek = new Date(date).getDay();
         return isNaN(dayOfWeek)
-            ? null
-            : [
-                "Sunday",
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-            ][dayOfWeek];
+            ? null : arrWeek[dayOfWeek];
     }
     const classes = useStyles();
 

@@ -36,7 +36,6 @@ export default function PinnedSubheaderList(props) {
                 props.handleClickList(item.url);
             }}
         >
-
             <ListItemText
             >{item.name}
             </ListItemText>
