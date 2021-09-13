@@ -19,9 +19,13 @@ body {
   font-family: 'Noto Sans JP', sans-serif !important;
   
 }
-input::placeholder{
-  font-family: 'Noto Sans JP', sans-serif !important;
+// input::placeholder{
+//   font-family: 'Noto Sans JP', sans-serif !important;
+  
+// }
+.MuiInputBase-input::placeholder {
  
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
 
 

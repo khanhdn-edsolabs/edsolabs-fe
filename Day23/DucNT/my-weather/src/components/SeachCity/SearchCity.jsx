@@ -38,7 +38,8 @@ export default function SearchCity(prop) {
                             type="text"
                             fullWidth
                             disableUnderline
-                            placeholder="Nhập thành phô bạn muốn xem" className="search-input"
+                            placeholder="Nhập thành phô bạn muốn xem" 
+                            className="search-input"
                             value={value}
                             onChange={(e) => setValue(e.target.value)} />
                     </form>

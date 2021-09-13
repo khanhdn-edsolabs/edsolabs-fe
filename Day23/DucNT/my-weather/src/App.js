@@ -8,12 +8,11 @@ import { Container, Grid, Button } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Swal from 'sweetalert2'
-
-// require('dotenv').config();
+require('dotenv').config();
 
 function App() {
-  const APP_API = "http://api.weatherapi.com/v1/forecast.json?key=";
-  const API_KEY = "037dc84425a04d71a4e45854210909";
+  // const APP_API = "http://api.weatherapi.com/v1/forecast.json?key=";
+  // const API_KEY = "037dc84425a04d71a4e45854210909";
   const [flag, setFlag] = useState(0);
   const [city, setCity] = useState("");
   const [loading, setLoading] = useState(false);
@@ -33,7 +32,7 @@ function App() {
       setThreeDay([]);
       setLoading(false);
     } else {
-      const api = `${APP_API}${API_KEY}&q=${city}&days=3&aqi=no&alerts=no`;
+      const api = `${process.env.REACT_APP_API_URL}${process.env.REACT_APP_API_KEY }&q=${city}&days=3&aqi=no&alerts=no`;
       axios
         .get(api)
         .then(function (response) {
@@ -43,6 +42,7 @@ function App() {
           setFlag(1);
         })
         .catch(function (error) {
+          console.log(error);
           setLoading(false);
           // setFlag(2);
           Swal.fire({
