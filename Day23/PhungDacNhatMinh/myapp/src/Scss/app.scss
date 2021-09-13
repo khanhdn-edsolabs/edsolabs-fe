@@ -1,0 +1,47 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.search {
+    &__input {
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 37px;
+        &:focus {
+            outline: none;
+        }
+    }
+}
+
+.header {
+    text-align: center;
+}
+
+li {
+    list-style-type: none;
+    padding-bottom: 10px;
+}
+
+h4 {
+    margin: 0px;
+}
+
+.nextDay {
+    width: 100%;
+    text-align: center;
+}
+
+.btn {
+    float: right;
+}
+
+.img {
+    max-width: 100%;
+    width: 100px;
+    border-radius: 50%;
+}
