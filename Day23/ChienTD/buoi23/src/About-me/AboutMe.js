@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Box } from "@material-ui/core";
 import "./about.css";
 import Button from "@material-ui/core/Button";
@@ -16,7 +16,6 @@ const AboutMe = (props) => {
     <Box
       position="absolute"
       width="100%"
-      minHeight="100vh"
       zIndex="4"
       className="wrapper"
       textAlign="center"
@@ -25,7 +24,7 @@ const AboutMe = (props) => {
     >
       <Box
         width="50%"
-        height="690px"
+        height="670px"
         bgcolor="white"
         display="inline-block"
         margin="auto"

@@ -1,7 +1,6 @@
 import "./footer.css";
 import React, { useState, useEffect } from "react";
 import Box from "@material-ui/core/Box";
-import AboutMe from '../About-me/AboutMe';
 
 const Footer = (props) => {
     const [showAbout, setShowAbout] = useState(false);

@@ -1,0 +1,5 @@
+@media only screen and (max-width: 900px) {
+    .ontent-weather {
+        width: 70% !important;
+    }
+  }

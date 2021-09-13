@@ -32,7 +32,7 @@ const NextDay = (props) => {
                   <Box fontSize={20} fontWeight="bold">{dayjs(x.date).format("ddd")}</Box>
                   <Box fontSize={20} fontWeight="bold">{dayjs(x.date).format("D/M")}</Box>
                   <Box>
-                      <img src={x.day.condition.icon} alt="this is image wearher" width="60%"/>
+                      <img src={x.day.condition.icon} alt="this is image wearher" width="80%"/>
                   </Box>
                   <Box component="h3">{x.day.avgtemp_c} °C</Box>
                 </Box>
