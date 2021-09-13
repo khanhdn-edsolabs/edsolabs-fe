@@ -1,7 +1,5 @@
 import { Link } from "@material-ui/core";
-import moment from "moment";
 import React, { useState } from "react";
-import styled from "styled-components";
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -20,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(2, 4, 3),
     },
   }));
-const Abc = (props) => {
+const Profile = (props) => {
     const classes = useStyles();
     const handleClose = () => {
         props.onClose(false);
@@ -53,4 +51,4 @@ const Abc = (props) => {
     )
 }
 
-export default Abc;
+export default Profile;
