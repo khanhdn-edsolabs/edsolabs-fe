@@ -9,7 +9,7 @@ import { NextDay } from './components/next5Day';
 import Fade from '@material-ui/core/Fade';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { Grid } from '@material-ui/core';
-
+import { UseForecast } from './func/function';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -24,72 +24,25 @@ const api = {
   key: '15d24afdc65f4ab69f892237210909'
 }
 function App() {
-  // Khoi tao cac bien
+  const {weather,
+    query,
+    loading,
+    err,
+    getDay,
+    getDate,
+    getIcon,
+    get_c,
+    about,
+    submitRequest} = UseForecast();
   const classes = useStyles();
-  const [weather, setWeather] = useState({});
-  const [query, setQuery] = React.useState('');
-  const timerRef = React.useRef();
-  const [next, setNext] = useState([])
-  const [forecast, setForecast] = useState(null);
-  const [err, setErr] = useState(null); 
-  const [loading, setLoading] = useState(true)
-  useEffect(
-    () => () => {
-      clearTimeout(timerRef.current);
-    },
-    [],
-  );
-  // Hàm lấy dữ liệu từ API
-  const submitRequest = location => {
-    
-      clearTimeout(timerRef.current);
-          setQuery('progress');
-          timerRef.current = window.setTimeout(() => {
-            setQuery('success');
-          }, 3000);
-      fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api.key}&q=${location}&days=3&aqi=no&alerts=no
-      `)
-        .then(res => res.json())
-        .then(result => {
-          setWeather(result)
-          setNext(result.forecast.forecastday)
-          setLoading(true)
-          setErr(null)
-        }).catch(result => {
-          setWeather(result)
-          setNext([])
-          setLoading(null)
-          setErr(true)    
-        });
+  const onSubmit = value => {
+    submitRequest(value)
   }
-  // Biến cho phần modal footer
-  const about = {
-    name: 'Trương Thanh Tùng',
-    date: '27/1/2000',
-    school: 'Trường Đại học Khoa học Tự nhiên, ĐHQGHN',
-    home: 'Thái Nguyên',
-    position: 'Front-end internship'
-  }
-  // Hàm trả về 2 thứ tiếp theo
-  const getDay = next.map((item) =>{
-    let date = new Date(item.date);
-    let day = date.toLocaleString('en-us', {weekday: 'long'}).slice(0,3);
-    return day
-  }).slice(1,3)
-  // Hàm trả về hai ngày tiếp theo
-  const getDate = next.map((item) =>{
-    const [yy, mm, dd] = item.date.split(/-/g);
-    return `${dd}/${mm}`;
-  }).slice(1,3)  
-  
-  //Hàm trả về icon và nhiệt độ 2 ngày tiếp theo
-  const getIcon = next.map((item) => item.day.condition.icon).slice(1,3)
-  const get_c = next.map((item) => item.day.avgtemp_c).slice(1,3)
   return (
     <React.Fragment>
       <CssBaseline />
       <Container maxWidth="md" className={classes.root}>
-        <Search submitSearch={submitRequest}/>
+        <Search submitSearch={onSubmit}/>
         {query === 'success' ? (
           <Container>
             {loading && <TodayWeather 
