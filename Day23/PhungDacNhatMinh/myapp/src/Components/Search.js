@@ -2,39 +2,38 @@ import React, { useState } from "react";
 import NextTwoDay from "./NextTwoDay";
 import Box from "@material-ui/core/Box";
 import CircularProgress from "@material-ui/core/CircularProgress";
+import axios from "axios";
 // import PropTypes from "prop-types";
-
-const api = {
-  key: "a57f100aae5d44d480684457211009",
-  base: "http://api.weatherapi.com/v1/",
-};
 
 const Search = (props) => {
   const [query, setQuery] = useState("");
   const [weather, setWeather] = useState({});
   const [loading, setLoading] = useState(true);
 
-  async function fetchApi() {
-    try {
-      const requestUrl = api.base;
-      const response = await fetch(
-        `${requestUrl}forecast.json?key=${api.key}&q=${query}&days=3&aqi=yes&alerts=yes`
-      );
-      const responseJSON = await response.json();
-      setWeather(responseJSON);
-      setLoading(true);
-    } catch (error) {
-      console.log("failed");
-      alert("Thành Phố này không tồn tại");
-    }
-  }
+  const fetchApi = () => {
+    axios
+      .get(
+        `${process.env.REACT_APP_URL}forecast.json?key=${process.env.REACT_APP_ID}&q=${query}&days=3&aqi=yes&alerts=yes`
+      )
+      .then((res) => {
+        const newData = res.data;
+        setWeather(newData);
+        setLoading(true);
+      })
+      .catch(() => {
+        alert("Thành Phố này không tồn tại. ");
+      })
+      .finally(() => {
+        setLoading(true);
+      });
+  };
   const handleSearch = (e) => {
     if (e.key === "Enter") {
       setWeather({});
       setLoading(false);
       setTimeout(() => {
         fetchApi(query);
-      }, 2000);
+      }, 1500);
       setQuery("");
     }
     return;
@@ -56,7 +55,7 @@ const Search = (props) => {
         />
       </form>
       {typeof weather.location !== "undefined" ? (
-        <Box border={1} borderRadius={10} padding={1} margin={2}>
+        <Box border={1} borderRadius={10} padding={1} my={2} width={1}>
           <header>
             <li>
               Today's Weather {weather.location.name},{" "}
@@ -70,10 +69,15 @@ const Search = (props) => {
             justifyContent="space-between"
           >
             <div>
+              <img src={weather.current.condition.icon} alt="" />
+            </div>
+            <div>
               <li>{weather.forecast.forecastday[0].day.condition.text}</li>
               <li>
-                {Math.trunc(weather.forecast.forecastday[0].day.avgtemp_c)}
-                &deg;C
+                <h4>
+                  {Math.trunc(weather.forecast.forecastday[0].day.avgtemp_c)}
+                  &deg;C
+                </h4>
               </li>
             </div>
             <div>

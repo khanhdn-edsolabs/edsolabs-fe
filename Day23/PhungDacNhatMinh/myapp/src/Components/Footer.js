@@ -15,7 +15,7 @@ const Footer = ({ user }) => {
         © 2021 by FE class. Made with{" "}
         <FavoriteRoundedIcon position="absolute" top={40} /> by{" "}
         <Link href="#" onClick={openModal} color="inherit">
-          {user}
+          {process.env.REACT_APP_NAME}
         </Link>
       </p>
       <TheModal showModalProps={showModal} setShowModalProps={setShowModal} />

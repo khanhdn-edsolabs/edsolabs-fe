@@ -47,10 +47,15 @@ function NextTwoDay(props) {
                 {getDayOnWeek(weatherObj.forecast.forecastday[1].date)}
               </Box>
               <li>{formatDays(weatherObj.forecast.forecastday[1].date)}</li>
+              <img
+                src={weatherObj.forecast.forecastday[1].day.condition.icon}
+                alt=""
+              />
               <li>
-                {" "}
-                {Math.trunc(weatherObj.forecast.forecastday[1].day.avgtemp_c)}
-                &deg;C
+                <h4>
+                  {Math.trunc(weatherObj.forecast.forecastday[1].day.avgtemp_c)}
+                  &deg;C
+                </h4>
               </li>
             </Box>
             <Box
@@ -64,9 +69,15 @@ function NextTwoDay(props) {
                 {getDayOnWeek(weatherObj.forecast.forecastday[2].date)}
               </Box>
               <li>{formatDays(weatherObj.forecast.forecastday[2].date)}</li>
+              <img
+                src={weatherObj.forecast.forecastday[2].day.condition.icon}
+                alt=""
+              />
               <li>
-                {Math.trunc(weatherObj.forecast.forecastday[2].day.avgtemp_c)}
-                &deg;C
+                <h4>
+                  {Math.trunc(weatherObj.forecast.forecastday[2].day.avgtemp_c)}
+                  &deg;C
+                </h4>
               </li>
             </Box>
           </Box>
