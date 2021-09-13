@@ -13,7 +13,7 @@ const Footer = (props) => {
     },[]);
   return (
     <Box fontWeight="bold" mb={5}>
-      © 2021 by FE class. Made with love by{" "}
+      © 2021 by FE class. Made with ♥ by{" "}
       <Box component="a" className="about-me" onClick={showAboutMeHandler}>
         {process.env.REACT_APP_API_PROFILE}
       </Box>
