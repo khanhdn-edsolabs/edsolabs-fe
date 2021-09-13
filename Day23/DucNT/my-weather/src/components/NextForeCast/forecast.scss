@@ -1,0 +1,29 @@
+.list {
+   margin: 0rem !important;
+   margin-bottom: 5% !important;
+}
+
+.list .MuiGrid-item {
+   padding: 0rem !important;
+}
+
+.day-item {
+   margin-top: 10%;
+   border-radius: 2rem !important;
+   text-align: center;
+   padding: 0rem;
+}
+
+.day-item p{
+   padding: 0.1rem 0rem;
+}
+
+.day-item p:last-child{
+   font-size:2rem;
+}
+
+.day-item img{
+   width: 10rem;
+   height: 10rem;
+   margin: auto;
+}
