@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
   },
   leftSide: {
     padding: '0 24px',
+    textAlign: 'left',
   },
   img: {
     width: '64px',
@@ -77,9 +78,11 @@ export default function Search(props) {
   const [title, setTitle] = useState("");
   const [data, setData] = useState([]);
   const [Loading, setLoading] = useState(false);
-  const APIkey = {
-    key: "7d98c159beca40d89fd144447211209",
-    base: "https://api.weatherapi.com/v1",
+  const api = {
+    key: process.env.REACT_APP_API_KEY,
+    base: process.env.REACT_APP_API_BASE,
+    // key: "7d98c159beca40d89fd144447211209",
+    // base: "https://api.weatherapi.com/v1",
     forecase: "/forecast.json",
     locate: title,
     days: 3,
@@ -89,7 +92,7 @@ export default function Search(props) {
       setLoading(true);
       axios
         .get(
-          `${APIkey.base}${APIkey.forecase}?key=${APIkey.key}&q=${APIkey.locate}&days=${APIkey.days}&aqi=no&alerts=no`
+          `${api.base}${api.forecase}?key=${api.key}&q=${api.locate}&days=${api.days}&aqi=no&alerts=no`
         )
         .then((res) => {
           setData(res.data);
