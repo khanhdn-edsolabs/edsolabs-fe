@@ -1,0 +1,24 @@
+ul {
+    border: 1px solid black;
+    overflow: auto;
+    padding: 0px;
+    max-height: 250px;
+    li {
+        cursor: pointer;
+        list-style-type: none;
+        padding: 10px;
+        &:nth-child(even) {
+            background-color: rgb(196, 198, 201);
+        }
+        &:nth-child(odd) {
+            background-color: rgb(250, 250, 250);
+        }
+        &:hover{
+            background-color: rgba(79, 129, 236, 0.712);
+            transition: 0.5 all ease-in-out;
+        }
+    }
+}
+p{
+    font-weight: bold;
+}
