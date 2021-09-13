@@ -35,7 +35,7 @@ const SeacrchDay = () => {
       setLoading(true);
       axios
         .get(
-          `${process.env.REACT_APP_API_WEATHER}/forecast.json?key=dbb9c7bb8e4242c0b17125401211009&q=${name}&days=3&aqi=no&alerts=no`
+          `${process.env.REACT_APP_API_WEATHER}/forecast.json?key=${process.env.REACT_APP_KEY}&q=${name}&days=3&aqi=no&alerts=no`
         )
         .then((res) => {
           const data = res.data;
