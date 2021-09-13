@@ -1,14 +1,13 @@
-import React from 'react'
+import React from "react";
 import styled from "styled-components";
 function Header() {
-    return (
-        <Wrapper>
-            <section>
-                <h1>Edsolabs 5-Day Forecast</h1>
-            </section>
-        </Wrapper>
-
-    )
+  return (
+    <Wrapper>
+      <section>
+        <h1>Edsolabs 5-Day Forecast</h1>
+      </section>
+    </Wrapper>
+  );
 }
 
 const Wrapper = styled.section`
@@ -18,4 +17,4 @@ const Wrapper = styled.section`
     color: palevioletred;
   }
 `;
-export default Header
+export default Header;

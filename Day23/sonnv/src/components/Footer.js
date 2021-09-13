@@ -5,7 +5,6 @@ import styled from "styled-components";
 import Profile from "./Profile";
 
 const Footer = () => {
-
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
@@ -20,11 +19,10 @@ const Footer = () => {
     <Wrapper>
       <section>
         <h3>Weather Todays's</h3>
-        <h3>&copy;{moment().year()} FE class. Made with 🖤 by&#160;
-          <Link  onClick={handleOpen}>
-            {process.env.REACT_APP_PROFILE}
-          </Link>
-          {open && <Profile open={open} onClose={(e) => handleClose(e)}/>}
+        <h3>
+          &copy;{moment().year()} FE class. Made with 🖤 by&#160;
+          <Link onClick={handleOpen}>{process.env.REACT_APP_PROFILE}</Link>
+          {open && <Profile open={open} onClose={(e) => handleClose(e)} />}
         </h3>
       </section>
     </Wrapper>
@@ -36,7 +34,7 @@ const Wrapper = styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #C5A491;
+  background: #c5a491;
   text-align: center;
   span {
     color: gey;
@@ -44,17 +42,17 @@ const Wrapper = styled.footer`
   h3 {
     color: white;
     margin: 0.1rem;
-    font-size : 20px;
+    font-size: 20px;
     text-transform: none;
     line-height: 1.25;
   }
   .MuiLink-root {
-    color : white;
+    color: white;
     text-decoration: none;
   }
   .MuiLink-root:hover {
     text-decoration: none;
-    color : black ;
+    color: black;
     cursor: pointer;
   }
 `;
