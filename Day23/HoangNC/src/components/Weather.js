@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Spin from "../loading.gif";
 import TextField from "@material-ui/core/TextField";
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -25,8 +24,8 @@ export default function ShowInfo(props) {
   const [city, setCity] = useState([]);
   const [isLoading, setLoading] = useState(false);
   const APIkey = {
-    key: "d20f4b0450d84a0dacf81919210909",
-    base: "https://api.weatherapi.com/v1",
+    key: process.env.REACT_APP_API_KEY,
+    base: process.env.REACT_APP_API_BASE,
     forecase: "/forecast.json",
     locate: title,
     days: 3,

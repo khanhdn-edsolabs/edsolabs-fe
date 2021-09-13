@@ -38,13 +38,12 @@ export default function SimpleModal() {
   const handleClose = () => {
     setOpen(false);
   };
-
   return (
     <div>
       <h3>
         © 2021 by FE class. Made with love by{" "}
         <a type="text" onClick={handleOpen}>
-          HoangNC
+          {process.env.REACT_APP_NAME}
         </a>
       </h3>
       <Modal
