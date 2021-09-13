@@ -51,13 +51,13 @@ function App() {
           `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${city}&days=3&aqi=no&alerts=no`
         )
         .then(function (response) {
-          console.log(response.data);
+          // console.log(response.data);
           setWeatherToDay(response.data);
           setWeatherFiveDay(response.data.forecast.forecastday);
           setLoading(false);
         })
         .catch(function (error) {
-          console.log(error);
+          // console.log(error);
           setCityIncorrect(true);
           setLoading(false);
         });
@@ -90,11 +90,11 @@ function App() {
     axios
       .get('https://ipinfo.io/json?token=1a6982852a0e69')
       .then((response) => {
-        console.log(response.data);
+        // console.log(response.data);
         setCity(response.data.city);
       })
       .catch((error) => {
-        console.log(error);
+        // console.log(error);
       });
   }, []);
 
