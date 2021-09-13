@@ -18,11 +18,11 @@ const useStyles = makeStyles((theme) => ({
         gap: '30px',
         marginTop: '30px'
     },
-    divWrap:{
-        width:'100%'
+    divWrap: {
+        width: '100%'
     },
     title: {
-        textAlign:'center',
+        textAlign: 'center',
         fontSize: '35px',
         marginTop: '50px',
     }
@@ -105,5 +105,3 @@ Home.propTypes = {
 }
 
 export default Home
-
-

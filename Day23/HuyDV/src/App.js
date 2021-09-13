@@ -6,7 +6,6 @@ import Footer from './Component/Footer';
 
 import './app.css';
 import React, {
-  useEffect,
   useState,
 } from 'react';
 import ModalCard from './Component/ModalCard';
@@ -31,13 +30,10 @@ function App() {
   };
 
   const getDateSeach = async (value) => {
-    const urlSeach = `http://api.weatherapi.com/v1/search.json?key=e9faed869c8c49d3b7845236210909&q=${value}`;
+    const urlSeach = `${process.env.REACT_APP_URL}/search.json?key=e9faed869c8c49d3b7845236210909&q=${value}`;
+
     const res = await fetch(urlSeach);
     const data = res.json();
-
-    // const dataSearch1 = await data((res)=>{
-    //   return res
-    // })
     data.then((res) => {
       return res
     }).then((res) => {
@@ -52,7 +48,7 @@ function App() {
   }
 
   const getData3Day = async (value) => {
-    const url = `https://api.weatherapi.com/v1/forecast.json?key=e9faed869c8c49d3b7845236210909&q=${value}&days=3&aqi=no&alerts=no`;
+    const url = `${process.env.REACT_APP_URL}/forecast.json?key=e9faed869c8c49d3b7845236210909&q=${value}&days=3&aqi=no&alerts=no`;
     const res3day = await fetch(url);
     const data3day = res3day.json();
     data3day.then((res) => {
@@ -80,7 +76,7 @@ function App() {
       getData3Day(value);
       setValueInput('');
     }
-    
+
   }
 
   return (

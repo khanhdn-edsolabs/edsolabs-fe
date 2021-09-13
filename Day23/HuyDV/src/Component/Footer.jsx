@@ -15,7 +15,7 @@ const LinkFooter = styled.a`
 
 
 const Footer = (props) => {
-    const test = ()=>{
+    const test = () => {
         props.handleOpen(true);
     }
     return (

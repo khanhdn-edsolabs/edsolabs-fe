@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { Card, CardContent, makeStyles } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
-    wrap:{
-        minWidth:'250px',
+    wrap: {
+        minWidth: '250px',
         border: "1px solid #000",
     },
     flex: {
@@ -20,15 +20,15 @@ const CardWeather = props => {
     function getDayOfWeek(date) {
         const dayOfWeek = new Date(date).getDay();
         return isNaN(dayOfWeek)
-          ? null
-          : [
-              "Sunday",
-              "Monday",
-              "Tuesday",
-              "Wednesday",
-              "Thursday",
-              "Friday",
-              "Saturday",
+            ? null
+            : [
+                "Sunday",
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
             ][dayOfWeek];
     }
     const classes = useStyles();
@@ -46,7 +46,7 @@ const CardWeather = props => {
 }
 
 CardWeather.propTypes = {
-    img:PropTypes.string,
+    img: PropTypes.string,
 }
 
 export default CardWeather

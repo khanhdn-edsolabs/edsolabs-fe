@@ -32,11 +32,11 @@ export default function PinnedSubheaderList(props) {
     const classes = useStyles();
     const mapData = props.dataSearch.map((item, index) => {
         return (<ListItem key={index}
-            onClick={()=>{
+            onClick={() => {
                 props.handleClickList(item.url);
             }}
         >
-            
+
             <ListItemText
             >{item.name}
             </ListItemText>
