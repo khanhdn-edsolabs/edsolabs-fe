@@ -1,5 +1,5 @@
 import './App.css';
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import {CssBaseline, Container} from '@material-ui/core/';
 import { Search } from './components/search';
 import { Footer, LoadError} from './components/footer';
@@ -20,9 +20,7 @@ const useStyles = makeStyles((theme) => ({
 
   }
 }));
-const api = {
-  key: '15d24afdc65f4ab69f892237210909'
-}
+
 function App() {
   const {weather,
     query,
@@ -34,6 +32,7 @@ function App() {
     get_c,
     about,
     submitRequest} = UseForecast();
+
   const classes = useStyles();
   const onSubmit = value => {
     submitRequest(value)

@@ -11,6 +11,7 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import avatar from '../img/IMG_8835.jpg';
+
 const useStyles = makeStyles((theme) => ({
     root: {
         fontWeight: 500,
@@ -60,7 +61,7 @@ export const Footer = (getEle) => {
                 <span>2021 by FE class. Made with </span>
                 <FavoriteIcon/>
                 <span> by </span>  
-                <Link href="#" type="button" onClick={handleOpen}>{getEle.name}</Link>
+                <Link type="button" onClick={handleOpen}>{getEle.name}</Link>
             </Typography>
             <Dialog 
                 open={open}

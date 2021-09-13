@@ -1,8 +1,5 @@
 import React, {useState, useEffect} from 'react';
-
-const api = {
-    key: '15d24afdc65f4ab69f892237210909'
-}
+require('dotenv').config();
 
 export const UseForecast = () => {
     const [weather, setWeather] = useState({});
@@ -13,19 +10,18 @@ export const UseForecast = () => {
     const [loading, setLoading] = useState(true)
     useEffect(
         () => () => {
-          clearTimeout(timerRef.current);
+            clearTimeout(timerRef.current);
         },
         [],
-      );
+    );
       // Hàm lấy dữ liệu từ API
-      const submitRequest = location => {
-        
-          clearTimeout(timerRef.current);
-              setQuery('progress');
-              timerRef.current = window.setTimeout(() => {
+    const submitRequest = location => {    
+        clearTimeout(timerRef.current);
+            setQuery('progress');
+            timerRef.current = window.setTimeout(() => {
                 setQuery('success');
-              }, 3000);
-          fetch(`http://api.weatherapi.com/v1/forecast.json?key=${api.key}&q=${location}&days=3&aqi=no&alerts=no
+            }, 3000);
+        fetch(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_KEY}&q=${location}&days=3&aqi=no&alerts=no
           `)
             .then(res => res.json())
             .then(result => {
@@ -42,37 +38,37 @@ export const UseForecast = () => {
       }
       // Biến cho phần modal footer
       const about = {
-        name: 'Trương Thanh Tùng',
+        name: process.env.REACT_APP_ABOUT_ME_NAME,
         date: '27/1/2000',
         school: 'Trường Đại học Khoa học Tự nhiên, ĐHQGHN',
         home: 'Thái Nguyên',
         position: 'Front-end internship'
-      }
+    }
       // Hàm trả về 2 thứ tiếp theo
-      const getDay = next.map((item) =>{
+    const getDay = next.map((item) =>{
         let date = new Date(item.date);
         let day = date.toLocaleString('en-us', {weekday: 'long'}).slice(0,3);
         return day
-      }).slice(1,3)
+    }).slice(1,3)
       // Hàm trả về hai ngày tiếp theo
-      const getDate = next.map((item) =>{
+    const getDate = next.map((item) =>{
         const [yy, mm, dd] = item.date.split(/-/g);
         return `${dd}/${mm}`;
-      }).slice(1,3)  
+    }).slice(1,3)  
       
       //Hàm trả về icon và nhiệt độ 2 ngày tiếp theo
-      const getIcon = next.map((item) => item.day.condition.icon).slice(1,3)
-      const get_c = next.map((item) => item.day.avgtemp_c).slice(1,3)
-      return {
-          weather,
-          query,
-          loading,
-          err,
-          getDay,
-          getDate,
-          getIcon,
-          get_c,
-          about,
-          submitRequest,
-      }
+    const getIcon = next.map((item) => item.day.condition.icon).slice(1,3)
+    const get_c = next.map((item) => item.day.avgtemp_c).slice(1,3)
+    return {
+        weather,
+        query,
+        loading,
+        err,
+        getDay,
+        getDate,
+        getIcon,
+        get_c,
+        about,
+        submitRequest,
+    }
 }
