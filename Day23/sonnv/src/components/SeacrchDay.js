@@ -54,6 +54,7 @@ const SeacrchDay = () => {
 
       setName("");
     } else {
+      dispatch({ type: "NO_NAME" });
     }
   }
   return (
