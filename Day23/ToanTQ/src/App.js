@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { getCountries } from "./apis";
 import InputForm from "./components/inputForm";
 import WeatherToday from "./components/today";
@@ -23,7 +23,6 @@ function App() {
   const [countries, setCountries] = useState([]);
   const [displayLoad, setDisplayLoad] = useState("none");
   const display = countries.length !== 0 ? "block" : "none";
-  const valueDefault = useRef(countries);
 
   const getData = (value) => {
     setDisplayLoad("block");

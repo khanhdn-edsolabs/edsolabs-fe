@@ -3,6 +3,10 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Box, Grid, Typography, Container, List } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    border: "1px solid",
+    borderRadius: "16px",
+  },
   spacing: {
     marginTop: "20px",
   },
@@ -30,7 +34,7 @@ export default function WeatherNextDay({ data, display }) {
             justifyContent="space-between"
           >
             {data.forecast?.forecastday.map((value, index) => (
-              <Grid key={index} item xs={2}>
+              <Grid className={classes.root} key={index} item xs={2}>
                 <Box textAlign="center">
                   <List>{getDay(value?.date)}</List>
                   <List>

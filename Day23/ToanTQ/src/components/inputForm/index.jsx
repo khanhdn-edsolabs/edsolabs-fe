@@ -36,6 +36,9 @@ export default function InputForm({ getData }) {
   };
 
   const handleSubmit = (e) => {
+    if (value === valueBefore || value === undefined) {
+      e.stopPropagation();
+    }
     e.preventDefault();
   };
   return (
