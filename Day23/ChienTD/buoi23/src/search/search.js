@@ -37,7 +37,6 @@ const Search = (props) => {
   // const api = environment.startAPI+enterCity+environment.endAPI;
   const api =
     process.env.REACT_APP_URL_START + enterCity + process.env.REACT_APP_URL_END;
-  console.log(api);
 
   const callApi = (event) => {
     setLoading(true);

@@ -14,7 +14,6 @@ function App() {
 
   const handlerGetRegionalWeather = (props) => {
     setDataWeather(props);
-    console.log("<<", props);
     if (props.error) {
       alert("Không tìm thấy thành phố yêu cầu")
     }
@@ -30,7 +29,6 @@ function App() {
   }
 
   const isShowFooter = (data) => {
-    console.log("<<data", data);
     setIsShowAbout(data);
   };
   return (

@@ -18,7 +18,6 @@ const Today = (props) => {
 
   useEffect(() => {
     if (props && props.weather.location) {
-      console.log(props);
       const oldName = props.weather.location.name;
       const oldCountry = props.weather.location.country;
       setName(oldName);

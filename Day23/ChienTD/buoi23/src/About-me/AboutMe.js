@@ -11,7 +11,6 @@ const AboutMe = (props) => {
     props.handlerOffModel(isShowAbout);
   };
 
-  console.log(props);
   return (
     <Box
       position="absolute"
@@ -64,7 +63,7 @@ const AboutMe = (props) => {
             <Box component="h3">Sở thích: Nữ</Box>
             <Box component="h3">Trường đại học: Công Nghiệp (HAUI)</Box>
           </Box>
-          <Box width='100%' textAlign='right'>
+          <Box width="100%" textAlign="right">
             <Button variant="contained" color="primary" onClick={offModel}>
               Close
             </Button>
