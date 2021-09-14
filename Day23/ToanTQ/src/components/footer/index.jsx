@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     verticalAlign: "middle",
   },
 });
-console.log(process.env);
+
 export default function Footer() {
   const classes = useStyles();
   return (
