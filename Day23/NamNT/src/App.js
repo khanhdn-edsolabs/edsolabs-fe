@@ -3,6 +3,7 @@ import "./App.css";
 import MainWeatherWindow from "./components/MainWeatherWindow";
 import CityInput from "./components/CityInput";
 import WeatherBox from "./components/WeatherBox";
+import CallModal from "./components/CallModal";
 
 
 class App extends React.Component {
@@ -88,6 +89,7 @@ class App extends React.Component {
             <WeatherBoxes />
           </MainWeatherWindow>{" "}
         </header>{" "}
+        <CallModal/>
       </div>
     );
   }
