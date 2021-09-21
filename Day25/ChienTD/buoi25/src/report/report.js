@@ -35,7 +35,7 @@ const Report = () => {
             width={200}
           />
         </Box>
-        <Box width="700px" pt={10}>
+        <Box width="700px" pt={10} pl={5}>
             <Bar data={data}  options={{ indexAxis: 'y' }}/>
         </Box>
       </Box>
