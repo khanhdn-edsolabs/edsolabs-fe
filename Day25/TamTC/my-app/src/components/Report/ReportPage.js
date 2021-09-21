@@ -4,10 +4,10 @@ import BarChart from "./BarChart"
 import DoughnutChart from "./DoughnutChart"
 import Main from '../UI/Main'
 import { makeStyles } from "@material-ui/core/styles"
-import taskApi from "../../api/taskApi"
+import taskApi from "../../apis/taskApi"
 import dayjs from "dayjs"
 import FilterOptions from './FilterOptions';
-
+import FilterOptions from './FilterOptions';
 
 const useStyles = makeStyles(() => ({
   main__header: {
@@ -63,9 +63,9 @@ const ReportPage = (props) => {
     <>
       <Header>Productivity report</Header>
       <Main className={classes.main__header}>
-        <DoughnutChart today={valueFilterToday}/>
+        <DoughnutChart today={valueFilterToday} />
         <BarChart today={valueFilterToday} />
-        <FilterOptions  />
+        <FilterOptions />
       </Main>
     </>
   )
