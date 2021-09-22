@@ -1,4 +1,4 @@
-import { Box } from '@material-ui/core';
+import { Box } from '@mui/material';
 import SingleTask from '../components/SingleTask';
 import React from 'react';
 

@@ -1,23 +1,24 @@
 import {
-    Box,
-    Button,
-    Dialog,
-    DialogActions,
-    
-    DialogTitle,
-    Grid,
-    IconButton,
-    Menu,
-    MenuItem,
-    Paper,
-    Typography,
-  } from "@material-ui/core";
-  import LocalOfferIcon from "@mui/icons-material/LocalOffer";
-  import MoreVertIcon from "@mui/icons-material/MoreVert";
-  import { useTagContext } from "../contexts/TagContext";
-  import { useTaskContext } from "../contexts/TaskContext";
-  import moment from "moment";
-  import React from "react";
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  Paper,
+  Typography,
+} from "@material-ui/core";
+import LocalOfferIcon from " @material-ui/icons/LocalOffer";
+import MoreVertIcon from " @material-ui/icons/MoreVert";
+import { useTagContext } from "contexts/TagContext";
+import { useTaskContext } from "contexts/TaskContext";
+import moment from "moment";
+import React from "react";
   
   const SingleTask = ({ task }) => {
     const { tags, callSnackbar } = useTagContext();
