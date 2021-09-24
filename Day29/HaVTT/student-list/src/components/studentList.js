@@ -3,7 +3,7 @@ import {Grid,TextField,InputLabel,MenuItem,FormControl,Select,IconButton,Button}
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import RefreshIcon from '@material-ui/icons/Refresh';
-import { StudentDataList } from './studentDataList';
+import { StudentDataList } from './DataList';
 
 const useStyles = makeStyles(theme => ({
   root: {
