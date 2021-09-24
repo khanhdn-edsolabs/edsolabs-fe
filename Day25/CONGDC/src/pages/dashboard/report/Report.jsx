@@ -1,11 +1,14 @@
+
 import { Grid } from "@material-ui/core";
 import BarChart from "../../../components/Chart/BarChart";
 import Donut2D from "../../../components/Chart/DoughChart";
 import { useTaskContext } from "../../../contexts/TaskContext";
 import React from "react";
 
+
 const Report = () => {
   // const { playing } = useTaskContext();
+
 
   return (
     <Grid container>
@@ -18,6 +21,7 @@ const Report = () => {
       </Grid>
     </Grid>
   );
+
 };
 
 export default Report;
