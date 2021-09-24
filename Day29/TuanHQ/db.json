@@ -182,6 +182,12 @@
       "email": "admin@gmail.com",
       "password": "admin",
       "fullname": "Administrator"
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "createdAt": 1632471216918,
+      "id": 2
     }
   ]
 }
