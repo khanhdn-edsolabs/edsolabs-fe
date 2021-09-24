@@ -19,25 +19,14 @@ function createGroup(id, fullname, rank) {
 export const StudentTeam = (props) => {
   const classes = useStyles();
   const [ data, setData ] = useState([]);
-  useEffect(() => {
-    getApi();
-  }, [])
-  const getApi = () => {
-    getData.getAll()
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-  const rows = data.map(item => {
+
+  const rows = props.data.map(item => {
     return createGroup(item.id, item.full_name, item.rank)
   }) 
   const sortArr = rows.sort((a,b) => {
     return a.rank - b.rank
   })
-  let arrGroup = [];
+  var arrGroup = [];
   for(let i = 0;i < 5; i++) {
     arrGroup.push(sortArr[i+0])
     arrGroup.push(sortArr[i+5])
@@ -49,6 +38,8 @@ export const StudentTeam = (props) => {
     (i % 5 ? r[r.length - 1].push(e) : r.push([e])) && r
   , []);
   return (
+    <>
+    {  
     <Grid container spacing={5}>
       { group.map((item,index) => (
         <Grid item xs={6} key={index}>
@@ -77,6 +68,7 @@ export const StudentTeam = (props) => {
           </TableContainer>
         </Grid>
       ))}
-    </Grid>
+    </Grid>}
+    </>
   )
 }

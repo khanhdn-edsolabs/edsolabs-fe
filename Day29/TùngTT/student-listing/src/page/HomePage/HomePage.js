@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
@@ -12,6 +12,7 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import { StudentList } from './StudentList';
 import { StudentTeam } from './StudentTeam';
+import getData from '../../api/getData';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -33,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export const HomePage = (props) => {
+export const HomePage = ({props}) => {
   const classes = useStyles();
   const [value, setValue] = useState('1');
   const handleChange = (event, newValue) => {
@@ -47,6 +48,19 @@ export const HomePage = (props) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    getApi();
+  }, [])
+  const getApi = () => {
+    getData.getAll()
+      .then(response => {
+        setData(response.data);
+      })
+      .catch(e => {
+        console.log(e);
+      });
   };
   return (
     <div className={classes.root}>
@@ -80,7 +94,7 @@ export const HomePage = (props) => {
             <StudentList/>
           </TabPanel>
           <TabPanel value="2">
-            <StudentTeam/>
+            <StudentTeam data={data}/>
           </TabPanel>
         </Container>
       </TabContext>

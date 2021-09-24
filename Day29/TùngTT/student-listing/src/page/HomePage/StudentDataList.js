@@ -30,7 +30,6 @@ function createData(id, firstname, lastname, gender, age, rank) {
 export const StudentDataList = (props) => {
   const classes = useStyles();
   const [data, setData] = useState([]);
-  props.getDataLen(data.length)
   useEffect(() => {
     getApi();
   }, [])

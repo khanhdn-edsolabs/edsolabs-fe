@@ -34,13 +34,10 @@ export const StudentList = (props) => {
   const [submitName, setSubmitName] = useState('')
   const [submitAge, setSubmitAge] = useState()
   const [submitGender, setSubmitGender] = useState()
-  const [len, setLen] = useState();
   const handleChange = (event) => {
     setGender(event.target.value);
   };
-  const getLen = a => {
-    setLen()
-  }
+
   const [visible, setVisible] = useState(5);
   const loadMore  = ()=> {
     setVisible(value => value + 6)
@@ -66,7 +63,6 @@ export const StudentList = (props) => {
     setSubmitAge('')
     setSubmitGender(null)
   }
-  console.log(len)
   return (
     <Grid container justifyContent="center" spacing={8}>
       <Grid item xs={12} className={classes.submit}>
@@ -122,7 +118,6 @@ export const StudentList = (props) => {
           name={submitName}
           gender={submitGender}
           age={submitAge}
-          getDataLen={getLen}
           />
       </Grid>
       <Grid item xs={6} className={classes.submit}>
