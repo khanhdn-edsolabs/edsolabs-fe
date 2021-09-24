@@ -30,6 +30,7 @@ function createData(id, firstname, lastname, gender, age, rank) {
 export const StudentDataList = (props) => {
   const classes = useStyles();
   const [data, setData] = useState([]);
+  props.getDataLen(data.length)
   useEffect(() => {
     getApi();
   }, [])
@@ -58,7 +59,7 @@ export const StudentDataList = (props) => {
     if(text === "M") {
       return "Male"
     } else if (text === "F") {
-      return "Famale"
+      return "Female"
     }
   }
   return (
@@ -78,7 +79,7 @@ export const StudentDataList = (props) => {
           {rows.filter(row => {
             if((row.firstname.toLowerCase().includes(props.name.toLowerCase()) 
             || row.lastname.toLowerCase().includes(props.name.toLowerCase()))
-            && (convertText(row.gender) === props.gender || row.age === props.age)) {
+            && (convertText(row.gender) === props.gender || (row.age === props.age))) {
               return row
             } else if (props.name === "") {
               return row
