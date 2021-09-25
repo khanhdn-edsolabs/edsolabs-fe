@@ -62,9 +62,6 @@ export const StudentList = (props) => {
     setSubmitName(name)
     setSubmitAge(age)
     setSubmitGender(gender)
-    console.log(gender)
-    console.log(name)
-    console.log(age)
     setName('')
     setGender('');
     setAge('');

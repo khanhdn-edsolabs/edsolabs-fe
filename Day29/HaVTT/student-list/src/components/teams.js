@@ -1,74 +1,97 @@
-import React, { useEffect, useState } from 'react';
-import getData from '../apis/getData';
-import {Paper,Grid,Table,TableRow,TableHead,TableContainer,TableCell,TableBody} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core';
-const useStyles = makeStyles({
+import React, { useState, useEffect } from "react";
+import {
+  TableRow,
+  Grid,
+  Table,
+  TableHead,
+  TableCell,
+  TableBody,
+  Typography,
+} from '@material-ui/core';
+import { getUser } from '../apis/apis';
+import { makeStyles } from '@material-ui/core/styles';
 
-});
-function createGroup(id, full_name, rank) {
-  return {id, full_name, rank};
-}
+const useStyles = makeStyles(theme => ({
+  table: {
+    MaxWidth: '40%'
+  },
+  box: {
+    marginTop: '40px'
+  }
+}));
 export const StudentTeam = () => {
   const classes = useStyles();
-  const [ data, setData ] = useState([]);
+  const [list, setList] = useState();
   useEffect(() => {
-    getApi();
-  }, [])
-  const getApi = () => {
-    getData.getAll()
-      .then(response => {
-        setData(response.data);
-      })
-      .catch(e => {
-        console.log(e);
-      });
-  };
-  const rows = data.map(item => {
-    return createGroup(item.id, item.full_name, item.rank)
-  }) 
-  const sortArr = rows.sort((a,b) => {
-    return a.rank - b.rank
-  })
-  let arrGroup = [];
-  for(let i = 0;i < 5; i++) {
-    arrGroup.push(sortArr[i+0])
-    arrGroup.push(sortArr[i+5])
-    arrGroup.push(sortArr[i+10])
-    arrGroup.push(sortArr[i+15])
-    arrGroup.push(sortArr[i+20])
+    getUser()
+      .then((e) => e.data)
+      .then((data) => setList(data))
+      .catch((err) => err);
+  }, []);
+  let newArr = [];
+  let arr1 = [];
+  let arr2 = [];
+  let arr3 = [];
+  let arr4 = [];
+  let totalArr = [];
+  const removeItem = (arr, e) => {
+    const index = arr.indexOf(e);
+    if (index > -1) {
+        arr.splice(index, 1);
+    }
+    return e;
+};
+  const group = (e) => {
+    const arr = [];
+    e.forEach((item) => {
+        const index = arr.findIndex((_item) => {
+            return _item.rank === item.rank;
+        });
+        if (index === -1) {
+            arr.push(item);
+            removeItem(e, item);
+        }
+    });
+    return arr;
+}; 
+  if (list) {
+    newArr = [...list];
+    arr1 = group(newArr);
+    arr2 = group(newArr);
+    arr3 = group(newArr);
+    arr4 = group(newArr);
+    totalArr.push(arr1, arr2, arr3, arr4, newArr);
   }
-  const group = arrGroup.reduce((r, e, i) =>
-    (i % 5 ? r[r.length - 1].push(e) : r.push([e])) && r
-  , []);
   return (
     <Grid container spacing={5}>
-      { group.map((item,index) => (
-        <Grid item xs={6} key={index}>
-          <h5>Team{index+1}</h5>
-          <TableContainer component={Paper}>
-            <Table className={classes.table} aria-label="simple table">
-              <TableHead className={classes.tableHead}>
-                <TableRow>
-                  <TableCell className={classes.tableItem}>#</TableCell>
-                  <TableCell className={classes.tableItem}  align="left">Full Name</TableCell>
-                  <TableCell className={classes.tableItem}  align="left">Rank</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-              {item.map((stu, index, arr) =>(
-                <TableRow key={index}>
-                  <TableCell>
-                    {index+1}
-                  </TableCell>
-                  <TableCell align="left">{stu.full_name}</TableCell>
-                  <TableCell align="left">{stu.rank}</TableCell>
-                </TableRow>
-              ))} 
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </Grid>
-      ))}
-    </Grid>
-  )
-} 
+        {list &&
+          totalArr.map((arr, i) => {
+            return (
+              <Grid item xs={6} className={classes.box} key={i}>
+                <Typography>{`Team ${i + 1}`}</Typography>
+                <Table className={classes.table} aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell>#</TableCell>
+                      <TableCell>Full Name</TableCell>
+                      <TableCell>Rank</TableCell>
+                    </TableRow>
+                  </TableHead>
+                  {arr.map((e, index) => {
+                    return (
+                      <TableBody key={index}>
+                        <TableRow>
+                          <TableCell>{index + 1}</TableCell>
+                          <TableCell>{e.full_name}</TableCell>
+                          <TableCell>{e.rank}</TableCell>
+                        </TableRow>
+                      </TableBody>
+                    );
+                  })}
+                </Table>
+              </Grid>
+            );
+          })}
+      </Grid>
+  );
+}

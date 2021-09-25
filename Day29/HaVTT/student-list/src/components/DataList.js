@@ -7,7 +7,7 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-import getData from '../apis/getData';
+import getData from '../apis/StudentApiClient';
 import moment from 'moment';
 const useStyles = makeStyles({
   table: {
@@ -26,7 +26,6 @@ function createData(id, firstname, lastname, gender, age, rank) {
   return { id, firstname, lastname, gender, age, rank };
 }
 
-
 export const StudentDataList = (props) => {
   const classes = useStyles();
   const [data, setData] = useState([]);
@@ -34,7 +33,7 @@ export const StudentDataList = (props) => {
     getApi();
   }, [])
   const getApi = () => {
-    getData.getAll()
+    getData.getAllStudent()
       .then(response => {
         setData(response.data);
       })
@@ -55,11 +54,8 @@ export const StudentDataList = (props) => {
     return createData(item.id, firstName(item.full_name), lastName(item.full_name), item.gender, age(item.dob), item.rank)
   })
   const convertText = text => {
-    if(text === "M") {
-      return "Male"
-    } else if (text === "F") {
-      return "Famale"
-    }
+    if(text === "M") return "Male";
+    return "Female"
   }
   return (
     <TableContainer component={Paper}>
