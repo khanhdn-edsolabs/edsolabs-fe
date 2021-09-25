@@ -182,6 +182,41 @@
       "email": "admin@gmail.com",
       "password": "admin",
       "fullname": "Administrator"
+    },
+    {
+      "email": "abc@gmaio.com",
+      "password": "1213",
+      "id": 2
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 3
+    },
+    {
+      "email": "ádasd",
+      "password": "ádasd",
+      "id": 4
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "admin",
+      "id": 5
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 6
+    },
+    {
+      "email": "a",
+      "password": "a",
+      "id": 7
+    },
+    {
+      "email": "",
+      "password": "",
+      "id": 8
     }
   ]
 }

@@ -5,16 +5,18 @@ import Box from "@mui/material/Box";
 import styled from "styled-components";
 import StudentList from "../../containers/StudentList";
 import Teams from "../../containers/Teams";
+import AppBars from "../../containers/AppBars";
 
 const Home = () => {
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
     <Wrapper>
+      <AppBars/>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
         <Tabs value={value} onChange={handleChange}>
           <Tab label="Student List" />

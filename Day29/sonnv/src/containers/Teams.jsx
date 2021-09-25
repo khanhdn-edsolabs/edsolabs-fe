@@ -6,8 +6,7 @@ import { Grid } from "@mui/material";
 
 const divideTeams = (list) => {
   const ranks = [...new Set(list.map((s) => s.rank))];
- 
-  
+
   const listTeamsByRank = ranks.map((rank) => {
     const newTeams = {
       rank: rank,
@@ -43,13 +42,13 @@ const Teams = () => {
 
   return (
     <Grid
-      sx={{ marginTop: "10px" }}
+      sx={{ margin: " 10px 20px 10px 20px" }}
       container
-      rowSpacing={2}
-      columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+      rowSpacing={3}
+      columnSpacing={{ xs: 4, sm: 4, md: 7 }}
     >
       {group.map((group, index) => (
-        <Grid item xs={12} sm={6} key={index}>
+        <Grid item xs={10} sm={6} key={index}>
           <GroupStudent key={index} group={group} />
         </Grid>
       ))}

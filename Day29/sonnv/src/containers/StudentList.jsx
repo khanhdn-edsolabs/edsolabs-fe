@@ -100,15 +100,16 @@ const StudentList = () => {
           </TableBody>
         </Table>
       </TableContainer>
-      <Button
-        variant="contained"
-        disabled={value >= 25 ? true : false}
-        color="primary"
-        style={{ marginTop: "20px" }}
-        onClick={showMoreData}
-      >
-        {value >= 25 ? "Disabled" : "Load More"}
-      </Button>
+      {value >= 25 ? null : (
+        <Button
+          variant="contained"
+          color="primary"
+          style={{ marginTop: "20px" }}
+          onClick={showMoreData}
+        >
+          Load More"
+        </Button>
+      )}
     </Wrapper>
   );
 };
