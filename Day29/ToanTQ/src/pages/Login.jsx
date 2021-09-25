@@ -1,52 +1,46 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
-import {
-  FormControl,
-  Paper,
-  Typography,
-  TextField,
-  Button,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { postApiUser } from "../apis/apiUser";
-import { useHistory } from "react-router-dom";
+import React, { useState } from 'react';
+import { FormControl, Paper, Typography, TextField, Button } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { postApiUser } from '../apis/apiUser';
+import { useHistory } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   error: {
-    color: "red",
+    color: 'red'
   },
   input: {
-    marginTop: "1.5rem",
+    marginTop: '1.5rem'
   },
   paper: {
-    width: "fit-content",
-    margin: "4rem auto",
-  },
+    width: 'fit-content',
+    margin: '4rem auto'
+  }
 }));
 
 export default function Login() {
   const classes = useStyles();
-  const [error, setError] = useState("");
-  const [username, setUserName] = useState("");
-  const [password, setPassword] = useState("");
+  const [error, setError] = useState('');
+  const [username, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   const history = useHistory();
 
   const handleLogin = () => {
     postApiUser(username, password)
-      .then((res) => {
-        localStorage.setItem("accessToken", res.data.accessToken);
-        localStorage.setItem("email", res.data.user.email);
-        history.push("/");
-        setError("");
+      .then(res => {
+        localStorage.setItem('accessToken', res.data.accessToken);
+        localStorage.setItem('email', res.data.user.email);
+        history.push('/');
+        setError('');
       })
-      .catch((err) => {
-        setError("Incorrect password or email");
+      .catch(err => {
+        setError('Incorrect password or email');
       });
   };
 
   return (
     <Paper className={classes.paper} square>
-      <div noValidate autoComplete="off">
+      <form method="" noValidate autoComplete="off">
         <Typography textAlign="center" component="h2" variant="h2">
           Login
         </Typography>
@@ -57,7 +51,7 @@ export default function Login() {
             label="Username"
             variant="outlined"
             value={username}
-            onChange={(e) => setUserName(e.target.value)}
+            onChange={e => setUserName(e.target.value)}
           />
           <TextField
             className={classes.input}
@@ -67,7 +61,7 @@ export default function Login() {
             autoComplete="current-password"
             variant="outlined"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={e => setPassword(e.target.value)}
           />
           <div>
             {error && (
@@ -76,16 +70,11 @@ export default function Login() {
               </Typography>
             )}
           </div>
-          <Button
-            className={classes.input}
-            variant="contained"
-            color="secondary"
-            onClick={handleLogin}
-          >
+          <Button className={classes.input} variant="contained" color="secondary" onClick={handleLogin}>
             Login
           </Button>
         </FormControl>
-      </div>
+      </form>
     </Paper>
   );
 }

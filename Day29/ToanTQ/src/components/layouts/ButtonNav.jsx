@@ -1,23 +1,23 @@
-import React from "react";
-import { ButtonGroup, Button, Box } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { ButtonGroup, Button, Box } from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import { Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   root: {
-    width: "fit-content",
-    margin: "50px auto",
+    width: 'fit-content',
+    margin: '50px auto'
   },
   btn: {
-    width: "140px",
-    padding: "0",
+    width: '140px',
+    padding: '0'
   },
   link: {
-    textDecoration: "none",
-    color: "#FFFFFF",
-    width: "100%",
-    padding: "6px 16px",
-  },
+    textDecoration: 'none',
+    color: '#FFFFFF',
+    width: '100%',
+    padding: '6px 16px'
+  }
 }));
 
 export default function ButtonNav() {

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import ButtonNav from "../components/layouts/ButtonNav";
-import Header from "../components/layouts/Header";
-import { getApiUser } from "../apis/apiUser";
+import React, { useState, useEffect } from 'react';
+import ButtonNav from '../components/layouts/ButtonNav';
+import Header from '../components/layouts/Header';
+import { getApiUser } from '../apis/apiUser';
 
 import {
   TableRow,
@@ -13,18 +13,18 @@ import {
   Paper,
   Box,
   Typography,
-  Container,
-} from "@material-ui/core";
+  Container
+} from '@material-ui/core';
 
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   table: {
-    MaxWidth: "40%",
+    MaxWidth: '40%'
   },
   box: {
-    marginTop: "40px",
-  },
+    marginTop: '40px'
+  }
 }));
 
 var groupBy = function (xs, key) {
@@ -38,17 +38,17 @@ export default function Team() {
   const [student, setStudent] = useState([]);
 
   useEffect(() => {
-    if (localStorage.hasOwnProperty("accessToken")) {
+    if (localStorage.hasOwnProperty('accessToken')) {
       getApiUser()
-        .then((res) => res.data)
-        .then((data) => {
+        .then(res => res.data)
+        .then(data => {
           setStudent(data);
         });
     }
   }, []);
   const classes = useStyles();
 
-  const dataGroupBy = Object.entries(groupBy(student, "rank"));
+  const dataGroupBy = Object.entries(groupBy(student, 'rank'));
   const newData = [];
   dataGroupBy.forEach(([key, value]) => {
     newData.push(value);
@@ -90,7 +90,7 @@ export default function Team() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {o.map((e) => (
+                  {o.map(e => (
                     <TableRow key={e.id}>
                       <TableCell component="th" scope="o">
                         {e.id}

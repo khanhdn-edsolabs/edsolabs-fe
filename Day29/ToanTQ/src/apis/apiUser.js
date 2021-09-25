@@ -1,18 +1,17 @@
-import axios from "axios";
-import axiosClient from "./axiosClient";
+import axiosClient from './axiosClient';
 
 export const getApiUser = async () => {
-  const accessToken = localStorage.getItem("accessToken");
-  return await axiosClient.get("/students", {
+  const accessToken = localStorage.getItem('accessToken');
+  return await axiosClient.get('/students', {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
-    },
+      Authorization: `Bearer ${accessToken}`
+    }
   });
 };
 
 export const postApiUser = (username, password) => {
-  return axiosClient.post("/login/users", {
+  return axiosClient.post('/login/users', {
     email: username,
-    password: password,
+    password: password
   });
 };
