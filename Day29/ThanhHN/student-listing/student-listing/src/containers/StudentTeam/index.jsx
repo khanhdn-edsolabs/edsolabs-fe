@@ -11,7 +11,7 @@ export const StudentTeam = () => {
     var axios = require('axios');
     var config = {
       method: 'get',
-      url: 'http://localhost:8000/students',
+      url: process.env.REACT_APP_STUDENTS_URL,
       headers: {
         Authorization: 'Bearer ' + localStorage.getItem('token'),
       },

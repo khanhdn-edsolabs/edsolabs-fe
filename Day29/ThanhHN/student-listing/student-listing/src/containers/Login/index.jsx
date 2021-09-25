@@ -17,7 +17,7 @@ export const Login = () => {
   const handleLogin = () => {
     var config = {
       method: 'post',
-      url: 'http://localhost:8000/auth/login',
+      url: process.env.REACT_APP_LOGIN_URL,
       headers: {
         'Content-Type': 'application/json',
       },
