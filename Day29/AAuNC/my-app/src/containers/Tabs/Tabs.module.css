@@ -1,0 +1,10 @@
+.tabList {
+  margin-top: 5%;
+}
+.tabList button {
+  width: 150px;
+  border: 1px solid black !important;
+  border-bottom: 0px !important;
+  border-top-left-radius: 20px !important;
+  border-top-right-radius: 20px !important;
+}

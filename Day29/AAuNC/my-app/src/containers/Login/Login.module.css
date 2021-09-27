@@ -1,0 +1,19 @@
+.paper {
+  width: 25%;
+  padding-left: 5%;
+  padding-right: 5%;
+  border: 2px solid black;
+}
+
+.formGroup {
+  margin-top: 5%;
+}
+
+.p {
+  font-weight: bold;
+}
+
+.grid {
+  margin-top: 7%;
+  margin-bottom: 7%;
+}
