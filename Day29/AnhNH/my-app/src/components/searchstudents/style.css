@@ -1,0 +1,20 @@
+#input__search {
+  width: 30%;
+  margin-right: 20px;
+}
+thead{
+  background-color: cornflowerblue;
+}
+td,th{padding: 15px;}
+tbody>tr:hover{
+  color: red;
+}
+.btn:hover{
+  background-color: rgb(224, 77, 51) !important;
+}
+@media only screen and (min-width: 0px) and (max-width: 768px) {
+  #input__search {
+    width: 100%;
+    margin-right: 0px;
+  }
+}
