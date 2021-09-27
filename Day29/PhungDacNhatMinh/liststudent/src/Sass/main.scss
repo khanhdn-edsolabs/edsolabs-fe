@@ -1,0 +1,29 @@
+#root {
+    max-width: 100%;
+    width: 100%
+}
+
+.header {
+    &__.nav {
+        background-color: rgba(199, 199, 199, 1);
+    }
+}
+
+.filter {
+    &__name {
+        max-width: 20%;
+    }
+    &__gender {
+        max-width: 15%;
+    }
+    &__age {
+        max-width: 10%;
+    }
+    &__search {
+        height: 38px;
+    }
+}
+
+.list {
+    max-width: 200%
+}
