@@ -1,0 +1,47 @@
+*{
+  box-sizing: border-box;
+}
+.formLogin {
+  margin-top: 200px;
+  border-radius: 10px;
+  border: 5px solid #333;
+  width: 500px;
+}
+.formLogin .form {
+    width: 90%;
+}
+.form h2 {
+  text-align: center;
+  padding-top: 30px;
+}
+.btn-login {
+    border: 1px solid #333;
+    margin: 20px 111px;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}
+.add {
+  font-weight: bold;
+}
+.right {
+  float: right;
+  display: flex;
+ 
+}
+.right h5 {
+  margin: 10px;
+  box-sizing: border-box;
+}
+.right .btn-link {
+  padding: 0 12px;
+    border: 1px solid;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: rgba(128, 128, 128, 0.5);
+    font-size: 16px;
+    line-height: 39px;
+    font-weight: 600;
+    color: black;
+
+}
