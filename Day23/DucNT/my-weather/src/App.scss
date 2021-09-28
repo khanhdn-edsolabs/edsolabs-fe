@@ -1,0 +1,34 @@
+
+html{
+ font-size:62.5%;
+}
+body {
+  font-family: 'Noto Sans JP', sans-serif !important;
+  background-image: url("https://images.pexels.com/photos/2132180/pexels-photo-2132180.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.MuiTypography-body1{
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+.MuiTypography-h5{
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+.MuiButton-label{
+  font-family: 'Noto Sans JP', sans-serif !important;
+  
+}
+// input::placeholder{
+//   font-family: 'Noto Sans JP', sans-serif !important;
+  
+// }
+.MuiInputBase-input::placeholder {
+ 
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+
+
+
+

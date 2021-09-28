@@ -1,0 +1,25 @@
+.detailNothing {
+    color: rgb(190, 61, 61);
+}
+.detail {
+    border-radius: 40px !important;
+    margin-bottom: 6%;
+}
+
+.detail-left {
+    display: flex;
+    padding-right: 10%;
+    align-items: center;
+}
+
+.detail-image {
+    width: 100px;
+    height: 100px;
+}
+
+.detail-summary {
+    min-width: 200px;
+    padding-left:  10px;
+    /* margin-top: 22%; */
+}
+

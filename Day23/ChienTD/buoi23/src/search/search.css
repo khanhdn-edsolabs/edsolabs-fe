@@ -1,0 +1,16 @@
+.icon-search {
+    margin: 14px;
+}
+
+.input {
+    width: 100% !important;
+}
+
+@media only screen and (max-width: 900px) {
+    .wrapper-input-search {
+        width: 70% !important;
+    }
+  }
+  .makeStyles-root-3 {
+      width:  100%;
+  }

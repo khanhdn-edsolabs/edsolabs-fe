@@ -1,0 +1,56 @@
+.App {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-weight: bold;
+}
+h1 {
+  margin-top: 80px;
+}
+a {
+  cursor: pointer;
+}
+h2 {
+  margin-bottom: 0;
+}
+.current {
+  border: 1px solid;
+  margin: auto;
+  max-width: 500px;
+  border-radius: 16px;
+}
+.current_info {
+  display: flex;
+  padding: 0 16px;
+  justify-content: space-between;
+}
+.temp {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+}
+.temp-img {
+  width: 120px;
+}
+.other {
+  padding: 0 24px;
+}
+.forecast_5day {
+  display: flex;
+  justify-content: center;
+}
+.forecast_single {
+  border: 1px solid;
+  margin: 0 48px;
+  padding: 0 24px;
+  border-radius: 16px;
+}
+.dow {
+  margin-bottom: 0;
+}
+.time {
+  margin-top: 0;
+}
+.loading-img {
+  width: 25px;
+  height: 25px;
+}
